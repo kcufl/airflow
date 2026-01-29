@@ -1,4 +1,4 @@
-from airflow.operators.branch import BranchPythonOperator
+from airflow.operators.python import BranchPythonOperator
 
 @dag(start_date=datetime(2025, 1, 1), schedule=None, catchup=False)
 def conditional_flow():

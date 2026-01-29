@@ -1,4 +1,5 @@
 from airflow.sensors.external_task import ExternalTaskSensor
+from airflow.decorators import dag, task
 
 @dag(start_date=datetime(2025, 1, 1), schedule=None, catchup=False)
 def manual_gate_flow():
