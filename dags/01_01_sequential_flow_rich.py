@@ -8,7 +8,7 @@ from airflow.exceptions import AirflowFailException
 
 
 @dag(
-    dag_id="01_sequential_flow_rich",
+    dag_id="01_01_sequential_flow_rich",
     start_date=datetime(2025, 1, 1),
     schedule=None,          # 샘플은 수동 실행
     catchup=False,
