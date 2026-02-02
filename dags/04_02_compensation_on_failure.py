@@ -7,7 +7,7 @@ from airflow.operators.empty import EmptyOperator
 
 
 @dag(
-    dag_id="04_compensation_on_failure",
+    dag_id="04_02_compensation_on_failure",
     start_date=datetime(2025, 1, 1),
     schedule=None,
     catchup=False,

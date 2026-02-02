@@ -8,7 +8,7 @@ from airflow.operators.empty import EmptyOperator
 
 
 @dag(
-    dag_id="03_conditional_short_circuit",
+    dag_id="03_02_conditional_short_circuit",
     start_date=datetime(2025, 1, 1),
     schedule=None,
     catchup=False,

@@ -7,7 +7,7 @@ from airflow.operators.empty import EmptyOperator
 
 
 @dag(
-    dag_id="02_parallel_static_all_done_cleanup",
+    dag_id="02_02_parallel_static_all_done_cleanup",
     start_date=datetime(2025, 1, 1),
     schedule=None,
     catchup=False,
