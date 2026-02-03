@@ -33,7 +33,7 @@ def compensation_on_failure_fixed():
     def main():
         print("[main] doing work...")
         # 샘플: 의도적으로 실패
-        raise RuntimeError("intentional failure in main")
+        #raise RuntimeError("intentional failure in main")
 
     @task
     def commit():

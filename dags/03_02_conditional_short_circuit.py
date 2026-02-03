@@ -31,7 +31,7 @@ def conditional_short_circuit():
 
     def should_continue(**_context) -> bool:
         # 샘플: False로 두면 downstream이 전부 skipped 되는 걸 확인 가능
-        return True  # 테스트로 False로 바꿔서 동작 확인해봐도 됨
+        return False  # 테스트로 False로 바꿔서 동작 확인해봐도 됨
 
     gate = ShortCircuitOperator(
         task_id="gate",
