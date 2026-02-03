@@ -48,7 +48,7 @@ def sequential_with_cleanup():
     def step_c(out: Dict[str, str]) -> None:
         print("[C] final:", out)
         # 실패 케이스 테스트하려면 아래 주석 해제
-        # raise RuntimeError("intentional failure for testing")
+        raise RuntimeError("intentional failure for testing")
 
     @task(trigger_rule="all_done")
     def cleanup(**context) -> None:
