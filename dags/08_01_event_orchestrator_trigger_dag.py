@@ -35,7 +35,7 @@ def event_orchestrator_trigger_dag():
 
     trigger_target = TriggerDagRunOperator(
         task_id="trigger_target",
-        trigger_dag_id="08_event_target_dag",
+        trigger_dag_id="08_02_event_target_dag",
         conf=conf,
         wait_for_completion=False,  # 필요하면 True로
     )
