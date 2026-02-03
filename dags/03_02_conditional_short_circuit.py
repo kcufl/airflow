@@ -23,15 +23,14 @@ def conditional_short_circuit():
 
     [핵심 포인트]
     - ShortCircuitOperator는 True면 downstream 진행, False면 downstream 전부 skipped
-    - Branch처럼 '양 갈래'를 만들기보다는,
-      "진행할 가치가 없으면 여기서 끝" 같은 게이트로 자주 사용됨
+    - End는 downstream이 전부 skipped여도 "정상 종료(success)"로 마무리되도록 trigger_rule을 조정
     """
 
     start = EmptyOperator(task_id="start")
 
     def should_continue(**_context) -> bool:
-        # 샘플: False로 두면 downstream이 전부 skipped 되는 걸 확인 가능
-        return False  # 테스트로 False로 바꿔서 동작 확인해봐도 됨
+        # 샘플: False면 downstream이 전부 skipped 되는 걸 확인
+        return False  # True/False 바꿔가며 확인
 
     gate = ShortCircuitOperator(
         task_id="gate",
@@ -46,7 +45,9 @@ def conditional_short_circuit():
     def work_2():
         print("[work_2] executed")
 
-    end = EmptyOperator(task_id="end", trigger_rule="none_failed_min_one_success")
+    # ✅ downstream이 모두 skipped여도 end는 실행되어 success로 마무리
+    # - upstream 실패가 없으면(success/skipped) 실행 가능
+    end = EmptyOperator(task_id="end", trigger_rule="none_failed")
 
     start >> gate >> [work_1(), work_2()] >> end
 
