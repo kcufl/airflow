@@ -5,7 +5,7 @@ from airflow.decorators import dag, task
 
 
 @dag(
-    dag_id="08_01_event_target_dag",
+    dag_id="08_02_event_target_dag",
     start_date=datetime(2025, 1, 1),
     schedule=None,   # ✅ 외부/상위 DAG 트리거 전용
     catchup=False,

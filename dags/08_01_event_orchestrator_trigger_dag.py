@@ -7,7 +7,7 @@ from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 
 
 @dag(
-    dag_id="08_02_event_orchestrator_trigger_dag",
+    dag_id="08_01_event_orchestrator_trigger_dag",
     start_date=datetime(2025, 1, 1),
     schedule=None,
     catchup=False,
